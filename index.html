@@ -417,7 +417,7 @@
         studentName = nameInput;
         document.getElementById('cert-student-name').innerText = studentName;
         
-        speak(أَهْلًا بِكَ يَا ${studentName}! أَنَا مُعَلِّمُكَ مُحَمَّد عَبْدِ الرَّحْمَنِ. هَيَّا بِنَا نَتَعَلَّمْ حَرْفَ الدَّالِ!);
+        speak(`أَهْلًا بِكَ يَا ${studentName}! أَنَا مُعَلِّمُكَ مُحَمَّد عَبْدِ الرَّحْمَنِ. هَيَّا بِنَا نَتَعَلَّمْ حَرْفَ الدَّالِ!`);
         nextStage(1);
     }
 
@@ -427,7 +427,7 @@
 
         if (stageNum === 1) {
             document.getElementById('screen-stage1').classList.remove('hidden');
-            speak(المَرْحَلَةُ الأُولَى: الِاكْتِشَافُ. اضْغَطْ عَلَى الْبَالُونَاتِ لِلِاسْتِمَاعِ إِلَى الكَلِمَاتِ وَالمَقَاطِعِ يَا ${studentName});
+            speak(`المَرْحَلَةُ الأُولَى: الِاكْتِشَافُ. اضْغَطْ عَلَى الْبَالُونَاتِ لِلِاسْتِمَاعِ إِلَى الكَلِمَاتِ وَالمَقَاطِعِ يَا ${studentName}`);
         } else if (stageNum === 2) {
             document.getElementById('screen-stage2').classList.remove('hidden');
             initStage2();
@@ -443,7 +443,7 @@
         } else if (stageNum === 6) {
             document.getElementById('certificate-screen').classList.remove('hidden');
             playSoundEffect('success');
-            speak(مَبْرُوكٌ يَا ${studentName}! لَقَدْ حَصَلْتَ عَلَى شَهَادَةِ التَّقْدِيرِ مِنْ الْمُعَلِّمِ مُحَمَّد عَبْدِ الرَّحْمَنِ! أَحْسَنْتَ يَا بَطَلُ!);
+            speak(`مَبْرُوكٌ يَا ${studentName}! لَقَدْ حَصَلْتَ عَلَى شَهَادَةِ التَّقْدِيرِ مِنْ الْمُعَلِّمِ مُحَمَّد عَبْدِ الرَّحْمَنِ! أَحْسَنْتَ يَا بَطَلُ!`);
         }
     }
 
@@ -470,7 +470,7 @@
     function loadStage2Question() {
         if (stage2Index >= stage2Items.length) {
             playSoundEffect('success');
-            speak(أَحْسَنْتَ كَثِيرًا يَا ${studentName}! أَنْتَ بَطَلٌ فِي الْقِرَاءَةِ!);
+            speak(`أَحْسَنْتَ كَثِيرًا يَا ${studentName}! أَنْتَ بَطَلٌ فِي الْقِرَاءَةِ!`);
             nextStage(3);
             return;
         }
@@ -478,7 +478,7 @@
         const item = stage2Items[stage2Index];
         
         document.getElementById('stage2-target-word').innerText = item.word;
-        document.getElementById('stage2-progress').innerText = السُّؤَالُ ${stage2Index + 1} مِنْ ${stage2Items.length};
+        document.getElementById('stage2-progress').innerText = `السُّؤَالُ ${stage2Index + 1} مِنْ ${stage2Items.length}`;
         
         const feedbackEl = document.getElementById('stage2-feedback');
         feedbackEl.innerText = '';
@@ -513,7 +513,7 @@
             playSoundEffect('success');
             
             btnEl.className = "bubble-btn bg-emerald-400 border-4 border-emerald-600 p-3 sm:p-4 rounded-2xl text-3xl font-black text-emerald-950 shadow-md scale-105";
-            feedbackEl.innerText = أَحْسَنْتَ يَا ${studentName}! إِجَابَةٌ صَحِيحَةٌ 🌟;
+            feedbackEl.innerText = `أَحْسَنْتَ يَا ${studentName}! إِجَابَةٌ صَحِيحَةٌ 🌟`;
             feedbackEl.classList.remove('opacity-0');
 
             document.querySelectorAll('#stage2-options button').forEach(b => b.disabled = true);
@@ -526,7 +526,7 @@
         } else {
             playSoundEffect('error');
             btnEl.className = "bubble-btn bg-red-200 border-4 border-red-500 p-3 sm:p-4 rounded-2xl text-3xl font-black text-red-900 shadow-md";
-            speak(حَاوِلْ مَرَّةً أُخْرَى يَا ${studentName}! انْظُرْ لِلْكَلِمَةِ الْمَكْتُوبَةِ!);
+            speak(`حَاوِلْ مَرَّةً أُخْرَى يَا ${studentName}! انْظُرْ لِلْكَلِمَةِ الْمَكْتُوبَةِ!`);
         }
     }
 
@@ -568,7 +568,7 @@
         };
         canvas.ontouchend = stopDrawing;
 
-        speak(المَرْحَلَةُ الثَّالِثَةُ: الكِتَابَةُ الدَّقِيقَةُ. مَرِّرْ إِصْبَعَكَ فَوْقَ النقَاطِ بِدِقَّهٍ يَا ${studentName});
+        speak(`المَرْحَلَةُ الثَّالِثَةُ: الكِتَابَةُ الدَّقِيقَةُ. مَرِّرْ إِصْبَعَكَ فَوْقَ النقَاطِ بِدِقَّهٍ يَا ${studentName}`);
     }
 
     function resetTracing() {
@@ -655,12 +655,12 @@
 
         if (startedAtTop && hitRatio >= 0.8) {
             playSoundEffect('success');
-            showModal('كِتَابَةٌ مِثَالِيَّةٌ! ✍️', مُذْهِلٌ يَا ${studentName}! لَقَدْ كَتَبْتَ حَرْفَ الدَّالِ بِمَهَارَةٍ وَدِقَّهٍ عَالِيَةٍ!, true, () => {
+            showModal('كِتَابَةٌ مِثَالِيَّةٌ! ✍️', `مُذْهِلٌ يَا ${studentName}! لَقَدْ كَتَبْتَ حَرْفَ الدَّالِ بِمَهَارَةٍ وَدِقَّهٍ عَالِيَةٍ!`, true, () => {
                 nextStage(4);
             });
         } else {
             playSoundEffect('error');
-            showModal('انْتَبِهْ لِلنِّقَاطِ! ✏️', عَفْوًا يَا ${studentName}! يَجِبُ أَنْ تَمُرَّ بِإِصْبَعِكَ فَوْقَ جَمِيعِ النقَاطِ الصَّفْرَاءِ بِالدِّقَّةِ ابْتِدَاءً مِنْ النُّقْطَةِ الْحَمْرَاءِ!, false);
+            showModal('انْتَبِهْ لِلنِّقَاطِ! ✏️', `عَفْوًا يَا ${studentName}! يَجِبُ أَنْ تَمُرَّ بِإِصْبَعِكَ فَوْقَ جَمِيعِ النقَاطِ الصَّفْرَاءِ بِالدِّقَّةِ ابْتِدَاءً مِنْ النُّقْطَةِ الْحَمْرَاءِ!`, false);
         }
     }
 
@@ -701,7 +701,7 @@
             grid.appendChild(btn);
         });
 
-        speak(المَرْحَلَةُ الرَّابِعَةُ: اخْتِيَارُ حَرْفِ الدَّالِ. اضْغَطْ عَلَى جَمِيعِ حُرُوفِ الدَّالِ يَا ${studentName});
+        speak(`المَرْحَلَةُ الرَّابِعَةُ: اخْتِيَارُ حَرْفِ الدَّالِ. اضْغَطْ عَلَى جَمِيعِ حُرُوفِ الدَّالِ يَا ${studentName}`);
     }
 
     function validateStage4() {
@@ -715,12 +715,12 @@
 
         if (allCorrect && !wrongPicked) {
             playSoundEffect('success');
-            showModal('إِجَابَةٌ صَحِيحَةٌ! 🌟', أَحْسَنْتَ يَا ${studentName}! اخْتَرْتَ كُلَّ حُرُوفِ الدَّالِ بِنَجَاحٍ!, true, () => {
+            showModal('إِجَابَةٌ صَحِيحَةٌ! 🌟', `أَحْسَنْتَ يَا ${studentName}! اخْتَرْتَ كُلَّ حُرُوفِ الدَّالِ بِنَجَاحٍ!`, true, () => {
                 nextStage(5);
             });
         } else {
             playSoundEffect('error');
-            showModal('حَاوِلْ مَرَّةً أُخْرَى 💡', حَاوِلْ مُجَدَّدًا يَا ${studentName}! اخْتَرْ حَرْفَ الدَّالِ (د) فَقَطْ وَابْتَعِدْ عَنْ الْحُرُوفِ الأُخْرَى!, false);
+            showModal('حَاوِلْ مَرَّةً أُخْرَى 💡', `حَاوِلْ مُجَدَّدًا يَا ${studentName}! اخْتَرْ حَرْفَ الدَّالِ (د) فَقَطْ وَابْتَعِدْ عَنْ الْحُرُوفِ الأُخْرَى!`, false);
         }
     }
 
@@ -764,8 +764,8 @@
 
     function loadStage5Word() {
         const wData = stage5Words[stage5Index];
-        document.getElementById('stage5-status').innerText = الْكَلِمَةُ ${stage5Index + 1} مِنْ ${stage5Words.length};
-        document.getElementById('stage5-word-label').innerText = الْكَلِمَةُ: ${wData.word};
+        document.getElementById('stage5-status').innerText = `الْكَلِمَةُ ${stage5Index + 1} مِنْ ${stage5Words.length}`;
+        document.getElementById('stage5-word-label').innerText = `الْكَلِمَةُ: ${wData.word}`;
 
         const container = document.getElementById('stage5-word-container');
         container.innerHTML = '';
@@ -783,24 +783,24 @@
                     playSoundEffect('success');
                     stage5Index++;
                     if (stage5Index < stage5Words.length) {
-                        showModal('إِجَابَةٌ رَائِعَةٌ! ✨', أَبْدَعْتَ يَا ${studentName}! وَجَدْتَ حَرْفَ الدَّالِ المُلَوَّنَ! هَيَّا لِلْكَلِمَةِ التَّالِيَةِ!, true, () => {
+                        showModal('إِجَابَةٌ رَائِعَةٌ! ✨', `أَبْدَعْتَ يَا ${studentName}! وَجَدْتَ حَرْفَ الدَّالِ المُلَوَّنَ! هَيَّا لِلْكَلِمَةِ التَّالِيَةِ!`, true, () => {
                             loadStage5Word();
                         });
                     } else {
-                        showModal('مَبْرُوكُ التَّفَوُّقِ! 🏆', عَبْقَرِيٌّ يَا ${studentName}! لَقَدْ أَتْمَمْتَ كُلَّ مَرَاحِلِ لُعْبَةِ حَرْفِ الدَّالِ بِنَجَاحٍ!, true, () => {
+                        showModal('مَبْرُوكُ التَّفَوُّقِ! 🏆', `عَبْقَرِيٌّ يَا ${studentName}! لَقَدْ أَتْمَمْتَ كُلَّ مَرَاحِلِ لُعْبَةِ حَرْفِ الدَّالِ بِنَجَاحٍ!`, true, () => {
                             nextStage(6);
                         });
                     }
                 } else {
                     playSoundEffect('error');
-                    showModal('إِجَابَةٌ قَرِيبَةٌ 💛', هَذَا لَيْسَ حَرْفَ الدَّالِ يا ${studentName}! اضْغَطْ عَلَى حَرْفِ الدَّالِ المُلَوَّنِ!, false);
+                    showModal('إِجَابَةٌ قَرِيبَةٌ 💛', `هَذَا لَيْسَ حَرْفَ الدَّالِ يا ${studentName}! اضْغَطْ عَلَى حَرْفِ الدَّالِ المُلَوَّنِ!`, false);
                 }
             };
 
             container.appendChild(spanBtn);
         });
 
-        speak(المَرْحَلَةُ الْخَامِسَةُ: اضْغَطْ عَلَى حَرْفِ الدَّالِ المُلَوَّنِ دَاخِلَ ${wData.speech});
+        speak(`المَرْحَلَةُ الْخَامِسَةُ: اضْغَطْ عَلَى حَرْفِ الدَّالِ المُلَوَّنِ دَاخِلَ ${wData.speech}`);
     }
 
     // MODAL HELPER
